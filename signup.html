@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Scalable Analytics for Live Stock Market Monitoring 🧾</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+            overflow: hidden;
+            color: #e2e8f0;
+        }
+
+        /* Glow Effects */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #00f5ff, transparent);
+            top: -100px;
+            left: -100px;
+            filter: blur(120px);
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #8b5cf6, transparent);
+            bottom: -100px;
+            right: -100px;
+            filter: blur(120px);
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 420px;
+            padding: 40px 30px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 24px;
+            background: linear-gradient(45deg, #00f5ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            outline: none;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        input:focus {
+            border: 1px solid #00f5ff;
+            box-shadow: 0 0 10px #00f5ff;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 13px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.07);
+            box-shadow: 0 0 25px rgba(236,72,153,0.7);
+        }
+
+        .link {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .link a {
+            color: #00f5ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+
+        .flash {
+            background: rgba(239,68,68,0.15);
+            border-left: 4px solid #ef4444;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            color: #fecaca;
+            font-size: 14px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 500px) {
+            .card { width: 90%; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h2>🧾 Create Account</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for cat, msg in messages %}
+              <div class="flash">⚠️ {{ msg }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <form method="post">
+            <input name="username" placeholder="👤 Full Name" required />
+            <input name="phone" placeholder="📱 Phone (10 digits)" pattern="\d{10}" title="10 digits" required />
+            <input name="email" type="email" placeholder="📧 Email Address" required />
+            <input name="password" type="password" placeholder="🔑 Password" required />
+
+            <button type="submit">🚀 Create Account</button>
+        </form>
+
+        <p class="link">Already have an account? <a href="{{ url_for('signin') }}">Sign In</a></p>
+        <p class="link"><a href="{{ url_for('home') }}">⬅ Back to Home</a></p>
+
+    </div>
+
+</body>
+</html>

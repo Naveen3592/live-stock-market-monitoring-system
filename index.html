@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A Scalable Analytics for Live Stock Market Monitoring 📊</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #020617, #0f172a, #1e293b);
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Animated background glow */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #00f5ff, transparent);
+            top: -100px;
+            left: -100px;
+            filter: blur(120px);
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #8b5cf6, transparent);
+            bottom: -100px;
+            right: -100px;
+            filter: blur(120px);
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            width: 90%;
+            padding: 50px 40px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(18px);
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00f5ff, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #cbd5e1;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            margin: 12px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00f5ff, #3b82f6);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0,245,255,0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #8b5cf6, #ec4899);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(139,92,246,0.5);
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255,255,255,0.6);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 24px; }
+            .btn { padding: 12px 25px; font-size: 15px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📊 A Scalable Analytics for Live Stock Market Monitoring</h1>
+        <h2>Real-time Insights • Intelligent Predictions • Smart Analytics 🚀</h2>
+
+        <a href="{{ url_for('signup') }}" class="btn btn-primary">🚀 Create Account</a>
+        <a href="{{ url_for('signin') }}" class="btn btn-secondary">🔐 Sign In</a>
+
+        <div class="footer">
+            Powered by AI • Secure • Fast • Scalable
+        </div>
+    </div>
+
+</body>
+</html>

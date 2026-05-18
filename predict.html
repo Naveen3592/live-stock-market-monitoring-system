@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>🤖 Stock Price Predictor 📊</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url("{{ url_for('static', filename='output.gif') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: #f1f1f1;
+    }
+
+    .login {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px 20px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #00ffcc;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    button {
+      width: 95%;
+      padding: 14px;
+      font-size: 1.05rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    .btn-predict {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      color: #fff;
+    }
+
+    .btn-predict:hover {
+      background: linear-gradient(45deg, #2575fc, #6a11cb);
+      transform: scale(1.05);
+    }
+
+    .btn-return {
+      background: linear-gradient(45deg, #ff6f61, #ffcc70);
+      color: #fff;
+    }
+
+    .btn-return:hover {
+      background: linear-gradient(45deg, #ffcc70, #ff6f61);
+      transform: scale(1.05);
+    }
+
+    h3 {
+      color: #ffcc70;
+      margin: 10px 0 0 0;
+      text-align: center;
+      word-wrap: break-word;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      input, button { font-size: 1rem; padding: 10px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>🤖 Stock Price Predictor 📈💹</h1>
+
+    <!-- ✅ FIXED HERE -->
+    <form action="{{ url_for('predict_route') }}" method="post">
+      <input type="number" step="any" name="Open" placeholder="🏦 Opening Price" required />
+      <input type="number" step="any" name="High" placeholder="📈 Highest Price" required />
+      <input type="number" step="any" name="Low" placeholder="📉 Lowest Price" required />
+      <input type="number" step="any" name="Volume" placeholder="📊 Volume" required />
+      <button type="submit" class="btn-predict">🔮 Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+      <h3>📢 Prediction Result: {{ prediction_text }} 💰</h3>
+    {% endif %}
+
+    <form action="{{ url_for('home') }}">
+      <button type="submit" class="btn-return">🏠 Return to Home</button>
+    </form>
+
+  </div>
+</body>
+</html>

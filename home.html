@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Time Series Forecasting for Stock Market Trends 📈✨</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url("{{ url_for('static', filename='home.gif') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: #f8f9fa;
+      text-align: center;
+    }
+
+    .login {
+      background: rgba(0, 0, 0, 0.65);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+      max-width: 450px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00ffcc;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 12px 0;
+      font-weight: bold;
+    }
+
+    .btn-details {
+      background: linear-gradient(45deg, #ff6f61, #ffcc70);
+      color: #fff;
+    }
+
+    .btn-details:hover {
+      background: linear-gradient(45deg, #ffcc70, #ff6f61);
+      transform: scale(1.05);
+    }
+
+    .btn-predict {
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      color: #fff;
+    }
+
+    .btn-predict:hover {
+      background: linear-gradient(45deg, #2575fc, #6a11cb);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <h1>🚀 Welcome to Advanced Stock Market Web App 💰📊</h1>
+
+    <form action="{{ url_for('details') }}">
+      <button type="submit" class="btn-details">📑 Stock Market Details</button>
+    </form>
+
+    <!-- ✅ FIXED HERE -->
+    <form action="{{ url_for('predict_route') }}">
+      <button type="submit" class="btn-predict">🤖 Stock Price Predictor</button>
+    </form>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>📊 Stock Market Details Report</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: url("{{ url_for('static', filename='details.gif') }}") no-repeat center center fixed;
+      background-size: cover;
+      color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .content-box {
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 1000px;
+      height: 90vh; /* full page height minus padding */
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.8);
+    }
+
+    .content-scroll {
+      padding: 30px 40px;
+      overflow-y: auto;
+      flex-grow: 1; /* allow scrolling for content */
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00ffcc;
+      text-align: center;
+      margin-bottom: 25px;
+      line-height: 1.4;
+    }
+
+    h2 {
+      color: #ffcc70;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 1rem;
+      color: #e0e0e0;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 95%;
+      padding: 15px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 10px auto;
+      font-weight: bold;
+      display: block;
+    }
+
+    .btn-return {
+      background: linear-gradient(45deg, #ff6f61, #ffcc70);
+      color: #fff;
+    }
+
+    .btn-return:hover {
+      background: linear-gradient(45deg, #ffcc70, #ff6f61);
+      transform: scale(1.05);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8rem; }
+      h2 { font-size: 1.2rem; }
+      p { font-size: 0.95rem; }
+      button { font-size: 1rem; padding: 12px; }
+      .content-scroll { padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.1rem; }
+      p { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="content-box">
+    <div class="content-scroll">
+      <h1>📊 Stock Market Details Report 📈💹</h1>
+      
+      <h2>📌 Introduction</h2>
+      <p>The stock market is the backbone of global financial systems, enabling companies to raise capital and investors to build wealth. It reflects the health of economies and plays a vital role in financial growth.</p>
+      
+      <h2>🏦 What is the Stock Market?</h2>
+      <p>The stock market is a platform where buyers and sellers exchange ownership of publicly traded companies. Investors gain shares, which represent fractional ownership in a company.</p>
+      
+      <h2>📈 How Stock Prices are Determined</h2>
+      <p>Stock prices fluctuate based on supply and demand. Key influences include company earnings, investor sentiment, government policies, and global economic conditions.</p>
+      
+      <h2>💰 Benefits of Investing</h2>
+      <p>Investors earn profits through capital appreciation 📊 (rising stock prices) and dividends 💵 (profit distribution by companies).</p>
+      
+      <h2>⚠️ Risks in Stock Market</h2>
+      <p>While stocks offer high returns, risks include price volatility, market crashes, and poor company performance.</p>
+      
+      <h2>🌍 Types of Stock Markets</h2>
+      <p>1️⃣ Primary Market: Where companies issue new shares (IPOs).<br>
+         2️⃣ Secondary Market: Where investors trade existing shares.</p>
+      
+      <h2>🏢 Key Stock Exchanges</h2>
+      <p>Major exchanges include the New York Stock Exchange (NYSE) 🗽, NASDAQ 💻, London Stock Exchange 🇬🇧, and Bombay Stock Exchange 🇮🇳.</p>
+      
+      <h2>📊 Importance of Stock Market</h2>
+      <p>It provides liquidity, investment opportunities, wealth creation, and a barometer for the economy.</p>
+      
+      <h2>📉 Market Indicators</h2>
+      <p>Indices such as S&P 500, Dow Jones, and Nifty 50 measure market performance and investor confidence.</p>
+      
+      <h2>🤖 Technology in Trading</h2>
+      <p>AI, algorithms, and automated trading systems are reshaping how markets operate and increasing efficiency.</p>
+      
+      <h2>📜 Conclusion</h2>
+      <p>The stock market is essential for both companies and investors. With proper knowledge and strategy, it can be a powerful tool for wealth creation and financial stability.</p>
+    </div>
+
+    <form action="{{ url_for('home') }}">
+      <button type="submit" class="btn-return">🏠 Return to Home</button>
+    </form>
+  </div>
+</body>
+</html>
